@@ -30,4 +30,29 @@ function createGrid(num) {
   createColumns(num);
 }
 
-createGrid(100);
+function getSize() {
+  // Gets a valid number to change the size of the canvas
+  let size = +prompt('Enter a number: ');
+  while (isNaN(size) || size > 100 || size < 1) {
+    size = +prompt('Invalid Input. Enter another number: ');
+  }
+  return size;
+}
+
+function clearCanvas() {
+  // Clears the canvas
+  const grid = document.querySelector("#grid");
+  while (grid.firstChild) grid.removeChild(grid.firstChild);
+}
+
+function changeSize() {
+  // Change the size of the canvas
+  const size = getSize();
+  clearCanvas();
+  createGrid(size);
+}
+
+const sizeBtn = document.querySelector('#size-btn');
+sizeBtn.addEventListener('click', changeSize);
+
+createGrid(16);

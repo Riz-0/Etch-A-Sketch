@@ -2,6 +2,13 @@ body {
   background-color: LightGray;
 }
 
+#size-btn {
+  display: block;
+  margin: auto;
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
+
 #grid {
   height: 500px;
   width: 500px;
