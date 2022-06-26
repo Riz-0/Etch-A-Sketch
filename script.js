@@ -3,7 +3,7 @@ function createRows(num) {
   const grid = document.querySelector('#grid');
   for (let rowNum = 0; rowNum < num; rowNum++) {
     const row = document.createElement('div');
-    row.style.cssText = 'display: flex;'
+    row.style.cssText = 'display: flex; flex: auto;';
     row.classList.add('row');
     grid.appendChild(row);
   }
@@ -16,8 +16,9 @@ function createColumns(num) {
     for (let colNum = 0; colNum < num; colNum++) {
       const col = document.createElement('div');
       col.style.cssText = `
-          height: 20px; width:20px; 
-          background-color:black;`;
+          flex: auto;
+          background-color:white;`;
+      col.addEventListener('mouseover', () => col.style.backgroundColor = 'black');
       rows[rowNum].appendChild(col);
     }
   }
@@ -29,4 +30,4 @@ function createGrid(num) {
   createColumns(num);
 }
 
-createGrid(16);
+createGrid(100);
